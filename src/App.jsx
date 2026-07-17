@@ -10,11 +10,12 @@ import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
 
 const routes = {
-  '/window-films/': WindowFilms,
-  '/window-films/standard-films/': StandardFilms,
-  '/window-films/ceramic-films/': CeramicFilms,
-  '/window-films/chameleon-films/': ChameleonFilms,
-  '/window-films/windshield-film/': WindshieldFilm,
+  '/': Home,
+  '/films/': WindowFilms,
+  '/films/standard/': StandardFilms,
+  '/films/ceramic/': CeramicFilms,
+  '/films/chameleon/': ChameleonFilms,
+  '/films/windshield/': WindshieldFilm,
   '/services/': Services,
   '/gallery/': Gallery,
   '/booknow/': BookNow,
@@ -22,7 +23,10 @@ const routes = {
 }
 
 export default function App() {
-  const path = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`
+  const base = import.meta.env.BASE_URL
+  const pathname = window.location.pathname
+  const relativePath = pathname.startsWith(base) ? pathname.slice(base.length - 1) : '/'
+  const path = relativePath.endsWith('/') ? relativePath : `${relativePath}/`
   const Page = routes[path] || Home
   return <Page/>
 }
