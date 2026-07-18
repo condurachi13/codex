@@ -51,6 +51,13 @@ export default function Header() {
           >
             Gallery
           </a>
+          <a
+            className="mobile-quote"
+            onClick={close}
+            href={sitePath("booknow/")}
+          >
+            Book now <ArrowRight size={15} />
+          </a>
         </nav>
         <a className="quote small" href={sitePath("booknow/")}>
           Book now <ArrowRight size={15} />
