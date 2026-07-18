@@ -366,19 +366,29 @@ button {
     max-width: 190px
 }
 
-.service-card button {
+.service-card > a {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.service-card > a svg {
     position: absolute;
     right: 23px;
     bottom: 23px;
-    border: 0;
     color: $red;
-    background: none;
     opacity: 0;
     transition: .2s
 }
 
-.service-card:hover button {
+.service-card:hover > a svg,
+.service-card > a:focus-visible svg {
     opacity: 1
+}
+
+.service-card > a:focus-visible {
+    outline: 2px solid $red;
+    outline-offset: -3px
 }
 
 .service-icon {
