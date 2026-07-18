@@ -840,7 +840,14 @@ footer {
 .enquiry textarea { resize: vertical; min-height: 104px; }
 .enquiry input::placeholder, .enquiry textarea::placeholder { color: #87878a; }
 .enquiry input:focus, .enquiry textarea:focus { border-color: $red; background: rgba(0, 0, 0, .35); }
+.date-field { color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
+.date-field input { display: block; margin-top: 7px; color-scheme: dark; }
 .enquiry .quote { width: 100%; margin-top: 5px; }
+.enquiry .quote:disabled { cursor: wait; opacity: .7; }
+.form-honeypot { display: none; }
+.enquiry .form-status { margin: 13px 0 0; font-size: .85rem; }
+.enquiry .form-status.success { color: #b4d69e; }
+.enquiry .form-status.error { color: #ff9a9a; }
 
 @media(max-width:850px) {
     .shell {

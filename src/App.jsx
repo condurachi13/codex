@@ -8,6 +8,7 @@ import Services from './pages/Services'
 import Gallery from './pages/Gallery'
 import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
+import WhatsAppPopup from './components/WhatsAppPopup'
 
 const routes = {
   '/': Home,
@@ -28,5 +29,5 @@ export default function App() {
   const relativePath = pathname.startsWith(base) ? pathname.slice(base.length - 1) : '/'
   const path = relativePath.endsWith('/') ? relativePath : `${relativePath}/`
   const Page = routes[path] || Home
-  return <Page/>
+  return <><Page/><WhatsAppPopup/></>
 }
