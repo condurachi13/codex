@@ -74,43 +74,6 @@ button {
     margin-top: 6px;
 }
 
-.brand-mark {
-    width: 42px;
-    height: 21px;
-    position: relative;
-    display: block;
-    border-top: 2px solid #fff;
-    border-radius: 80% 90% 0 0;
-    transform: skewX(-18deg);
-}
-
-.brand-mark:after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 0;
-    width: 39px;
-    border-top: 1px solid #aaa
-}
-
-.brand-mark i {
-    position: absolute;
-    width: 16px;
-    border-top: 2px solid $red;
-    top: 1px;
-    right: -4px
-}
-
-.brand-mark b {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    top: -2px;
-    left: 6px;
-    background: $red;
-    border-radius: 50%
-}
-
 .nav-links {
     display: flex;
     height: 100%;
@@ -202,7 +165,7 @@ button {
     z-index: -2;
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #070708 5%, rgba(7, 7, 8, .79) 35%, rgba(7, 7, 8, .08) 69%, #070708 100%), url('https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=2200&q=90') 70% 55%/cover no-repeat;
+    background: linear-gradient(90deg, #070708 5%, rgba(7, 7, 8, .79) 35%, rgba(7, 7, 8, .08) 69%, #070708 100%), url('/assets/tintopia-hero.jpg') 70% 55%/cover no-repeat;
     filter: saturate(.58) contrast(1.13)
 }
 
@@ -929,6 +892,10 @@ footer {
     }
 
     .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         padding-top: 157px;
         text-align: center
     }
@@ -1007,34 +974,38 @@ footer {
 
     .hero-perks {
         display: grid;
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
     }
 
     .section {
-        padding: 72px 0
+        padding: 72px 0;
     }
 
     .section h2,
     .statement h2 {
-        font-size: 29px
+        font-size: 29px;
     }
 
     .service-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
     .service-card {
         min-height: 220px
     }
+    .service-card p {
+        max-width: 100%;
+        padding-bottom: 20px;
+    }
 
     .work-heading {
         align-items: center;
         flex-direction: column;
-        gap: 20px
+        gap: 20px;
     }
 
     .gallery figure {
-        height: 150px
+        height: 150px;
     }
 
     .cta-inner {
@@ -1042,11 +1013,11 @@ footer {
         align-items: center;
         flex-direction: column;
         flex-wrap: nowrap;
-        text-align: center
+        text-align: center;
     }
 
     .cta-icon {
-        flex: none
+        flex: none;
     }
 
     .cta .quote {

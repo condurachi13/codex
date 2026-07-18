@@ -16,6 +16,11 @@ footer {
     max-width: 240px;
 }
 
+/* The header brand uses nowrap; allow the footer description to wrap normally. */
+.footer-grid > .brand p {
+    white-space: normal;
+}
+
 .footer-grid h4 {
     font-size: 10px;
     text-transform: uppercase;
@@ -71,6 +76,12 @@ footer {
 }
 
 @media (max-width: 850px) {
+    .brand-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     .footer-grid,
     .copyright {
