@@ -75,6 +75,16 @@ footer {
     letter-spacing: .4px;
 }
 
+.copyright a {
+    color: #aaa;
+    margin-left: 10px;
+    text-decoration: underline;
+    text-decoration-color: #ed1c24;
+    text-underline-offset: 3px;
+}
+
+.copyright a:hover { color: #fff; }
+
 @media (max-width: 850px) {
     .brand-footer {
         display: flex;

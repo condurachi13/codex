@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Brand from "./Brand";
 import { sitePath } from "../paths";
@@ -6,6 +6,8 @@ import "./Header.scss";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const close = () => setOpen(false);
   const base = import.meta.env.BASE_URL;
   const currentPath = window.location.pathname.endsWith("/")
@@ -18,8 +20,31 @@ export default function Header() {
       : currentPath === target;
   };
 
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY <= 10) {
+        setVisible(true);
+      } else if (scrollDifference > 0) {
+        setVisible(false);
+        setOpen(false);
+      } else if (scrollDifference < 0) {
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="nav-wrap">
+    <header className={visible ? "nav-wrap" : "nav-wrap header-hidden"}>
       <div className="nav shell">
         <Brand />
         <nav className={open ? "nav-links active" : "nav-links"}>
@@ -63,11 +88,13 @@ export default function Header() {
           Book now <ArrowRight size={15} />
         </a>
         <button
-          className="menu"
+          className={open ? "menu menu-open" : "menu"}
           aria-label="Toggle menu"
+          aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
-          {open ? <X /> : <Menu />}
+          <Menu className="menu-icon" />
+          <X className="menu-icon menu-close" />
         </button>
       </div>
     </header>

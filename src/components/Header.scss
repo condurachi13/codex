@@ -1,12 +1,17 @@
-.nav-wrap {
+.nav-wrap.nav-wrap {
     height: 88px;
     background: rgba(7, 7, 8, .82);
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 5;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, .07);
     backdrop-filter: blur(18px);
+    transition: transform .25s ease;
+}
+
+.nav-wrap.header-hidden {
+    transform: translateY(-100%);
 }
 
 .nav {
@@ -53,7 +58,7 @@
 }
 
 .menu,
-.mobile-quote {
+.nav-links .mobile-quote {
     display: none;
 }
 
@@ -62,21 +67,30 @@
         height: 75px;
     }
 
-    .nav-links {
+    .nav-wrap .nav-links {
         position: fixed;
         inset: 75px 0 auto;
         background: #101011;
         height: auto;
         padding: 20px;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         border-bottom: 1px solid rgba(255, 255, 255, .13);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        visibility: hidden;
+        transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
     }
 
-    .nav-links.active {
-        display: flex;
+    .nav-wrap .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+        transition: opacity .22s ease, transform .22s ease;
     }
 
     .nav-links a {
@@ -88,7 +102,7 @@
         bottom: 7px;
     }
 
-    .mobile-quote {
+    .nav-links .mobile-quote {
         display: block;
         margin: 10px 0 0;
         background: #ed1c24;
@@ -105,12 +119,35 @@
         display: none;
     }
 
-    .menu {
-        display: block;
+    .nav-wrap .menu {
+        display: grid;
+        place-items: center;
         background: none;
         border: 0;
         color: white;
         padding: 5px;
+        height: 34px;
+        width: 34px;
+    }
+
+    .nav-wrap .menu-icon {
+        grid-area: 1 / 1;
+        transition: opacity .2s ease, transform .25s ease;
+    }
+
+    .nav-wrap .menu-close {
+        opacity: 0;
+        transform: rotate(-90deg) scale(.7);
+    }
+
+    .nav-wrap .menu-open .menu-icon:not(.menu-close) {
+        opacity: 0;
+        transform: rotate(90deg) scale(.7);
+    }
+
+    .nav-wrap .menu-open .menu-close {
+        opacity: 1;
+        transform: rotate(0) scale(1);
     }
 }
 

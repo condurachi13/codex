@@ -337,14 +337,17 @@ button {
     padding: 26px;
     position: relative;
     background: linear-gradient(145deg, rgba(255, 255, 255, .06), transparent 60%);
-    transition: .35s
+    transform: translateY(0) scale(1);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s, background .35s, box-shadow .35s
 }
 
 .service-card:hover {
     border-color: rgba(237, 28, 36, .7);
     background: linear-gradient(145deg, rgba(237, 28, 36, .11), rgba(255, 255, 255, .03));
-    box-shadow: 0 12px 28px rgba(0, 0, 0, .2)
+    box-shadow: 0 18px 36px rgba(0, 0, 0, .3);
+    transform: translateY(-7px) scale(1.015)
 }
+
 
 .service-card small {
     color: #666;
@@ -399,8 +402,13 @@ button {
     left: 25px;
     border: 2px solid #ddd;
     border-radius: 40% 55% 15% 15%;
-    transform: skewX(-14deg)
+    transform: skewX(-14deg);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s
 }
+
+.service-card:hover .service-icon { transform: skewX(-14deg) scale(1.08) translateX(3px); }
+.service-card:hover .service-icon.shield,
+.service-card:hover .service-icon.building { transform: scale(1.08) translateX(3px); }
 
 .service-icon:before,
 .service-icon:after {
@@ -467,7 +475,7 @@ button {
 }
 
 .statement-photo {
-    background: linear-gradient(90deg, transparent 55%, #101011), url('https://images.unsplash.com/photo-1605559424843-9e7de5a159c2?auto=format&fit=crop&w=1400&q=90') center/cover
+    background: linear-gradient(90deg, transparent 55%, #101011), url('/assets/tintopia-bristol-car.webp') center/cover
 }
 
 .statement-copy {
@@ -522,7 +530,13 @@ button {
     margin: 0;
     overflow: hidden;
     position: relative;
-    background: #151515
+    background: #151515;
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s
+}
+
+.gallery figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .28)
 }
 
 .gallery img {
@@ -738,6 +752,35 @@ footer {
     padding-bottom: 96px;
 }
 
+.legal-content {
+    max-width: 900px;
+    padding-top: 88px;
+    padding-bottom: 96px;
+}
+
+.legal-content section {
+    padding: 28px 0;
+    border-bottom: 1px solid $line;
+}
+
+.legal-content h2 {
+    margin: 0 0 14px;
+    font: 600 27px/1.1 Oswald, sans-serif;
+    text-transform: uppercase;
+}
+
+.legal-content p {
+    max-width: 780px;
+    margin: 0 0 13px;
+    color: $muted;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.legal-content p:last-child { margin-bottom: 0; }
+.legal-content a { color: white; text-decoration: underline; text-decoration-color: $red; text-underline-offset: 3px; }
+.legal-updated { color: #86868a !important; font: 10px 'DM Mono'; letter-spacing: .4px; text-transform: uppercase; }
+
 .sub-content h2 {
     font-size: 34px;
 }
@@ -777,6 +820,46 @@ footer {
     border: 1px solid $line;
     background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
     box-shadow: 0 24px 55px rgba(0, 0, 0, .22);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s, border-color .35s;
+}
+
+.enquiry:hover {
+    border-color: rgba(237, 28, 36, .45);
+    box-shadow: 0 30px 65px rgba(0, 0, 0, .3);
+    transform: translateY(-4px)
+}
+
+@keyframes card-pop {
+    from { opacity: 0; transform: translateY(18px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.reveal-ready {
+    opacity: 0;
+    transform: translateY(24px) scale(.96);
+}
+
+.revealed {
+    animation: card-pop .6s var(--reveal-delay, 0ms) cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .enquiry {
+        animation: none;
+        transition: none;
+    }
+
+    .reveal-ready {
+        opacity: 1;
+        transform: none;
+    }
+
+    .service-card:hover,
+    .gallery figure:hover,
+    .enquiry:hover {
+        transform: none;
+    }
 }
 
 .enquiry h3 {
@@ -813,7 +896,7 @@ footer {
 .enquiry textarea { resize: vertical; min-height: 104px; }
 .enquiry input::placeholder, .enquiry textarea::placeholder { color: #87878a; }
 .enquiry input:focus, .enquiry textarea:focus { border-color: $red; background: rgba(0, 0, 0, .35); }
-.date-field { color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
+.date-field { width: 100%; color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
 .date-field input { display: block; margin-top: 7px; color-scheme: dark; }
 .enquiry .quote { width: 100%; margin-top: 5px; }
 .enquiry .quote:disabled { cursor: wait; opacity: .7; }
@@ -891,9 +974,11 @@ footer {
     .sub-content { grid-template-columns: 1fr; gap: 44px; padding-top: 66px; padding-bottom: 66px; }
     .sub-content li { justify-content: center; }
     .enquiry { padding: 27px 22px; }
+    .legal-content { padding-top: 62px; padding-bottom: 66px; }
 
     .hero {
-        min-height: 720px
+        min-height: 720px;
+        height: 100vh;
     }
 
     .hero-image {

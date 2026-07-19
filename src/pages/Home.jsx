@@ -12,33 +12,7 @@ import Footer from "../components/Footer";
 import GoogleReviews from "../components/GoogleReviews";
 import { galleryImages } from "./pageData";
 import { sitePath } from "../paths";
-
-const services = [
-  [
-    "01",
-    "Standard film",
-    "A clean, factory-style finish with everyday privacy and UV protection.",
-    "sedan",
-  ],
-  [
-    "02",
-    "Ceramic film",
-    "Premium heat rejection and clear connectivity with no signal interference.",
-    "suv",
-  ],
-  [
-    "03",
-    "Chameleon film",
-    "Advanced protection with a distinctive colour-shifting finish.",
-    "building",
-  ],
-  [
-    "04",
-    "Windshield film",
-    "A protective layer against glare, UV and everyday road debris.",
-    "shield",
-  ],
-];
+import ServiceGrid from "../components/ServiceGrid";
 
 export default function Home() {
   return (
@@ -100,36 +74,12 @@ export default function Home() {
             Explore our films <ArrowRight />
           </a>
         </div>
-        <div className="service-grid">
-          {services.map(([number, title, copy, icon], index) => (
-            <article className="service-card" key={title}>
-              <div className={`service-icon ${icon}`}>
-                <span />
-              </div>
-              <small>{number}</small>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-              <a
-                href={sitePath(
-                  [
-                    "films/standard/",
-                    "films/ceramic/",
-                    "films/chameleon/",
-                    "films/windshield/",
-                  ][index],
-                )}
-                aria-label={`View ${title}`}
-              >
-                <ArrowRight size={18} />
-              </a>
-            </article>
-          ))}
-        </div>
+        <ServiceGrid />
       </section>
       <section className="statement">
         <div className="statement-photo"></div>
         <div className="statement-copy">
-          <p className="eyebrow">The Tintopia standard</p>
+          <p className="eyebrow">The Tintopia Bristol standard</p>
           <h2>
             QUALITY YOU CAN SEE.
             <br />
@@ -192,7 +142,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">Make it yours</p>
             <h2>READY TO REDEFINE YOUR RIDE?</h2>
-            <p>Book your Tintopia consultation today.</p>
+            <p>Book your Tintopia Bristol consultation today.</p>
           </div>
           <a className="quote" href={sitePath("booknow/")}>
             Book now <ArrowRight size={16} />

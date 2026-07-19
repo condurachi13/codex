@@ -8,7 +8,7 @@ export default function Footer({ compact = false }) {
     return (
       <footer>
         <div className="copyright shell">
-          © 2026 Tintopia Bristol. Automotive window tinting.
+          © 2026 Tintopia Bristol. Automotive window tinting. <a href={sitePath("legal/")}>Legal &amp; Privacy</a>
         </div>
       </footer>
     );
@@ -33,6 +33,7 @@ export default function Footer({ compact = false }) {
           <a href={sitePath("services/")}>Services</a>
           <a href={sitePath("gallery/")}>Gallery</a>
           <a href={sitePath("contact/")}>Contact</a>
+          <a href={sitePath("legal/")}>Legal &amp; Privacy</a>
         </div>
         <div className="workshop">
           <h4>Workshop</h4>
@@ -51,7 +52,7 @@ export default function Footer({ compact = false }) {
         </div>
       </div>
       <div className="copyright shell">
-        © 2026 Tintopia Bristol. All rights reserved.
+        © 2026 Tintopia Bristol. All rights reserved. <a href={sitePath("legal/")}>Legal &amp; Privacy</a>
       </div>
     </footer>
   );

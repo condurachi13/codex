@@ -44,6 +44,18 @@
     padding: 27px;
     border: 1px solid rgba(255, 255, 255, .11);
     background: #151517;
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s, box-shadow .3s;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(237, 28, 36, .55);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-card { transition: none; }
+    .review-card:hover { transform: none; }
 }
 
 .review-card-top { display: flex; align-items: center; gap: 12px; }

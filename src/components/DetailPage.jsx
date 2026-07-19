@@ -2,8 +2,9 @@ import { Check } from "lucide-react";
 import Header from "./Header";
 import Footer from "./Footer";
 import EnquiryForm from "./EnquiryForm";
+import ServiceGrid from "./ServiceGrid";
 
-export default function DetailPage({ page, gallery = [] }) {
+export default function DetailPage({ page, gallery = [], showServiceGrid = false }) {
   const [title, tagline, copy, label, items] = page;
   return (
     <main className="subpage">
@@ -17,20 +18,21 @@ export default function DetailPage({ page, gallery = [] }) {
         </div>
       </section>
       <section className="sub-content shell">
-        <div>
-          <p className="eyebrow">{label}</p>
-          <h2>{title.toUpperCase()}</h2>
-          <p className="sub-copy">{copy}</p>
-          <ul>
-            {items.map((item) => (
-              <li key={item}>
-                <Check size={16} />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <EnquiryForm booking={title === "Book Your Tinting"} />
+        {showServiceGrid ? <ServiceGrid /> : (
+          <div>
+            <p className="eyebrow">{label}</p>
+            <p className="sub-copy">{copy}</p>
+            <ul>
+              {items.map((item) => (
+                <li key={item}>
+                  <Check size={16} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <EnquiryForm booking />
       </section>
       {gallery.length > 0 && (
         <section className="shell gallery sub-gallery">
