@@ -877,6 +877,7 @@ footer {
 
 .enquiry form {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 11px;
 }
 
@@ -896,8 +897,8 @@ footer {
 .enquiry textarea { resize: vertical; min-height: 104px; }
 .enquiry input::placeholder, .enquiry textarea::placeholder { color: #87878a; }
 .enquiry input:focus, .enquiry textarea:focus { border-color: $red; background: rgba(0, 0, 0, .35); }
-.date-field { width: 100%; min-width: 0; color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
-.date-field input { display: block; box-sizing: border-box; max-width: 100%; min-width: 0; margin-top: 7px; color-scheme: dark; }
+.enquiry .date-field { display: block; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
+.enquiry .date-field input { display: block; inline-size: 100%; box-sizing: border-box; max-inline-size: 100%; min-inline-size: 0; margin-top: 7px; color-scheme: dark; }
 .enquiry .quote { width: 100%; margin-top: 5px; }
 .enquiry .quote:disabled { cursor: wait; opacity: .7; }
 .form-honeypot { display: none; }
