@@ -37,9 +37,7 @@ export default function Footer({ compact = false }) {
         </div>
         <div className="workshop">
           <h4>Workshop</h4>
-          <p>Unit 4, Green Tree Farm</p>
-          <p>Roman Road, Emersons Green</p>
-          <p>Bristol BS16 7NT</p>
+          <p>Unit 4, Green Tree Farm, Roman Rd, Emerson’s green, Pucklechurch, Bristol BS16 7NT</p>
         </div>
         <div>
           <h4>Let’s talk</h4>
