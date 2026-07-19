@@ -898,6 +898,7 @@ footer {
 .enquiry input::placeholder, .enquiry textarea::placeholder { color: #87878a; }
 .enquiry input:focus, .enquiry textarea:focus { border-color: $red; background: rgba(0, 0, 0, .35); }
 .enquiry .date-field { display: block; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; color: #bcbcc0; font-size: 11px; font-weight: 700; text-align: left; }
+.enquiry .date-field label { display: block; }
 .enquiry .date-field input { display: block; inline-size: 100%; box-sizing: border-box; max-inline-size: 100%; min-inline-size: 0; margin-top: 7px; color-scheme: dark; }
 .enquiry .quote { width: 100%; margin-top: 5px; }
 .enquiry .quote:disabled { cursor: wait; opacity: .7; }
