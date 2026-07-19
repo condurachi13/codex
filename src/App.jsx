@@ -11,6 +11,7 @@ import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import WhatsAppPopup from './components/WhatsAppPopup'
+import Seo from './components/Seo'
 
 const routes = {
   '/': Home,
@@ -59,5 +60,5 @@ export default function App() {
   const relativePath = pathname.startsWith(base) ? pathname.slice(base.length - 1) : '/'
   const path = relativePath.endsWith('/') ? relativePath : `${relativePath}/`
   const Page = routes[path] || Home
-  return <><Page/><WhatsAppPopup/></>
+  return <><Seo/><Page/><WhatsAppPopup/></>
 }

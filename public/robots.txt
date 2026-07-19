@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://condurachi13.github.io/codex/sitemap.xml
