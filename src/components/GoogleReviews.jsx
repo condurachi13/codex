@@ -1,7 +1,7 @@
 import { ExternalLink, Star } from 'lucide-react'
 import './GoogleReviews.scss'
 
-const reviewsUrl = 'https://www.google.com/search?num=10&hl=en-RO&output=search&tbm=lcl&kgmid=/g/11mzpl0005&q=Tintopia+Bristol#lkt=LocalPoiReviews'
+const reviewsUrl = 'https://g.page/r/CfdNxfbfnn1MEBM/review'
 
 const reviews = [
   {
