@@ -6,15 +6,28 @@ import {
   Sun,
   Thermometer,
   Zap,
+  X,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GoogleReviews from "../components/GoogleReviews";
-import { galleryImages } from "./pageData";
+import { homeGalleryImages } from "./pageData";
 import { sitePath } from "../paths";
 import ServiceGrid from "../components/ServiceGrid";
 
 export default function Home() {
+  const [activeImage, setActiveImage] = useState(null);
+
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setActiveImage(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
   return (
     <main id="top">
       <Header />
@@ -121,19 +134,42 @@ export default function Home() {
           <a className="outline" href={sitePath("gallery/")}>
             View gallery <ArrowRight size={16} />
           </a>
+          </div>
+          <div className="gallery">
+            {homeGalleryImages.map((src, index) => (
+              <figure key={src}>
+                <button
+                  className="gallery-image-trigger"
+                  type="button"
+                  onClick={() => setActiveImage({ src, index })}
+                  aria-label={`View Tintopia project ${index + 1} full screen`}
+                >
+                  <img src={sitePath(src)} alt={`Tintopia tinting project ${index + 1}`} />
+                </button>
+                <figcaption>
+                  Project 0{index + 1}
+                  <ArrowRight size={16} />
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      {activeImage && (
+        <div
+          className="gallery-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Tintopia project ${activeImage.index + 1}`}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setActiveImage(null);
+          }}
+        >
+          <button className="gallery-lightbox-close" type="button" onClick={() => setActiveImage(null)} aria-label="Close full screen image">
+            <X />
+          </button>
+          <img src={sitePath(activeImage.src)} alt={`Tintopia project ${activeImage.index + 1}`} />
         </div>
-        <div className="gallery">
-          {galleryImages.map((src, index) => (
-            <figure key={src}>
-              <img src={src} alt={`Tintopia tinting project ${index + 1}`} />
-              <figcaption>
-                Project 0{index + 1}
-                <ArrowRight size={16} />
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+      )}
       <section className="cta">
         <div className="shell cta-inner">
           <span className="cta-icon">
@@ -149,7 +185,24 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <section className="tint-shades shell" aria-label="Window tint shade guide">
+        <img
+          src={sitePath("assets/tintopia-bristol-car-foil-shades.jpeg")}
+          alt="Window tint shade guide showing 5%, 20%, 50%, 70%, and 86% tint levels on a car"
+        />
+      </section>
       <GoogleReviews />
+      <section className="location-map" aria-label="Tintopia Bristol location">
+        <iframe
+          title="Tintopia Bristol location"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4967.919511399873!2d-2.456317!3d51.495606!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48719b112d422c7b%3A0x4c7d9edff6c54df7!2sTintopia%20Bristol!5e0!3m2!1sen!2sro!4v1783709310234!5m2!1sen!2sro"
+          width="100%"
+          height="450"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+      </section>
       <Footer />
     </main>
   );

@@ -1,9 +1,17 @@
 export const galleryImages = [
-  "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85",
+  "assets/tintopia-foil/tintopia-foil-01.jpeg",
+  "assets/tintopia-foil/tintopia-foil-02.jpeg",
+  "assets/tintopia-foil/tintopia-foil-03.jpeg",
+  "assets/tintopia-foil/tintopia-foil-04.jpeg",
+  "assets/tintopia-foil/tintopia-foil-05.jpeg",
+  "assets/tintopia-foil/tintopia-foil-06.jpeg",
+  "assets/tintopia-foil/tintopia-foil-07.jpeg",
+  "assets/tintopia-foil/tintopia-foil-08.jpeg",
+  "assets/tintopia-foil/tintopia-foil-09.jpeg",
+  "assets/tintopia-foil/tintopia-foil-10.jpeg",
 ];
+
+export const homeGalleryImages = galleryImages.slice(0, 4);
 
 export const pageData = {
   windowFilms: [
@@ -69,7 +77,7 @@ export const pageData = {
   services: [
     "Tintopia Bristol Services",
     "Automotive tinting tailored to your car.",
-    "From an understated privacy tint to high-performance ceramic and chameleon films, every job is carefully prepared and installed for a smooth, lasting finish.",
+    "Not sure which window tint is right for your vehicle? We'd love to help. Visit Tintopia for a free, no-obligation consultation where you can see our range of window films in person, compare different shades, and get expert advice based on your needs. Whether you're looking for privacy, heat reduction, UV protection, or simply a new look for your car, we'll explain your options and answer any questions—so you can choose with confidence. There's no pressure to book on the spot. Our goal is to make sure you find the perfect solution for your vehicle. We look forward to welcoming you!",
     "Our service promise",
     [
       "Consultation on tint shades",
