@@ -41,6 +41,7 @@ export default function Footer({ compact = false }) {
           <a href={sitePath("films/")}>Window films</a>
           <a href={sitePath("services/")}>Services</a>
           <a href={sitePath("gallery/")}>Gallery</a>
+          <a href={sitePath("faq/")}>FAQ</a>
           <a href={sitePath("contact/")}>Contact</a>
           <a href={sitePath("legal/")}>Legal &amp; Privacy</a>
         </div>

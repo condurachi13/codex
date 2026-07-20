@@ -17,6 +17,7 @@ const pages = {
   "/booknow/": { title: "Book Car Window Tinting | Tintopia Bristol", description: "Request a car window tinting appointment with Tintopia Bristol. Tell us about your vehicle and preferred date." },
   "/contact/": { title: "Contact Tintopia Bristol | Car Window Tinting", description: "Contact Tintopia Bristol for professional automotive window tinting, advice, quotes and appointments." },
   "/legal/": { title: "Legal & Privacy | Tintopia Bristol", description: "Tintopia Bristol privacy notice, website terms, data processing information and your privacy rights." },
+  "/faq/": { title: "Window Tint FAQ & UK Rules | Tintopia Bristol", description: "Answers to common questions about car window tinting and the UK legal limits for front and rear vehicle windows." },
 };
 
 function normalisePath(pathname) {

@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery'
 import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
+import Faq from './pages/Faq'
 import WhatsAppPopup from './components/WhatsAppPopup'
 import Seo from './components/Seo'
 
@@ -25,6 +26,7 @@ const routes = {
   '/booknow/': BookNow,
   '/contact/': Contact,
   '/legal/': Legal,
+  '/faq/': Faq,
 }
 
 export default function App() {

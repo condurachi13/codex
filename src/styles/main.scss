@@ -860,6 +860,86 @@ footer {
 .legal-content a { color: white; text-decoration: underline; text-decoration-color: $red; text-underline-offset: 3px; }
 .legal-updated { color: #86868a !important; font: 10px 'DM Mono'; letter-spacing: .4px; text-transform: uppercase; }
 
+.faq-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    padding-top: 88px;
+    padding-bottom: 96px;
+}
+
+.faq-intro,
+.faq-source {
+    max-width: 760px;
+    color: $muted;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.faq-list {
+    margin: 32px 0;
+    border-top: 1px solid $line;
+}
+
+.faq-item {
+    border-bottom: 1px solid $line;
+}
+
+.faq-item h2 {
+    margin: 0;
+}
+
+.faq-item h2 button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 21px 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font: 600 19px/1.2 Oswald, sans-serif;
+    text-transform: uppercase;
+}
+
+.faq-item h2 button::after { content: '+'; color: $red; font: 400 28px/1 Manrope, sans-serif; }
+.faq-item.is-open h2 button::after { content: '−'; }
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    max-width: 760px;
+    overflow: hidden;
+    transition: grid-template-rows .28s ease;
+}
+
+.faq-answer > div {
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 0 0 21px;
+    color: $muted;
+    font-size: 13px;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .2s ease, transform .28s ease;
+}
+
+.faq-item.is-open .faq-answer { grid-template-rows: 1fr; }
+.faq-item.is-open .faq-answer p { opacity: 1; transform: translateY(0); }
+
+.faq-source a { color: white; text-decoration: underline; text-decoration-color: $red; text-underline-offset: 3px; }
+
 .sub-content h2 {
     font-size: 34px;
 }

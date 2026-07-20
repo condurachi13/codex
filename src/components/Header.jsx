@@ -77,6 +77,13 @@ export default function Header() {
             Gallery
           </a>
           <a
+            className={isCurrent("faq/") ? "current" : undefined}
+            onClick={close}
+            href={sitePath("faq/")}
+          >
+            FAQ
+          </a>
+          <a
             className="mobile-quote"
             onClick={close}
             href={sitePath("booknow/")}
